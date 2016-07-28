@@ -49,7 +49,8 @@
     EditToDoViewController * editor = [[EditToDoViewController alloc]
                                        initWithNibName:@"EditToDoViewController"
                                        bundle:[NSBundle mainBundle]];
-    [self presentViewController:editor animated:YES completion:nil];
+    //[self presentViewController:editor animated:YES completion:nil];
+    [self.navigationController pushViewController:editor animated:YES];
     
 }
 

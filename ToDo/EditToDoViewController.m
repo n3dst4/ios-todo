@@ -16,12 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancelClicked:(id)sender;
+{
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
