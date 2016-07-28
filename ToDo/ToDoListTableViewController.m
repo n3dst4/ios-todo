@@ -35,7 +35,20 @@
                    [[ToDoModel alloc] initWithTitle:@"And another thing"],
                    [[ToDoModel alloc] initWithTitle:@"And finally"],
                    ];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self
+                                  action:@selector(addClicked:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    
 }
+
+- (void) addClicked:(id)sender; {
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
