@@ -15,6 +15,8 @@
 		6571FC7B1D49359300DA6078 /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571FC7A1D49359300DA6078 /* ToDoListTableViewController.m */; };
 		6571FC7E1D493EA900DA6078 /* ToDoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571FC7D1D493EA900DA6078 /* ToDoModel.m */; };
 		6571FC801D49425C00DA6078 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC7F1D49425C00DA6078 /* .gitignore */; };
+		6571FC831D4A94B600DA6078 /* EditToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571FC821D4A94B600DA6078 /* EditToDoViewController.m */; };
+		6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		6571FC7C1D493EA900DA6078 /* ToDoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoModel.h; sourceTree = "<group>"; };
 		6571FC7D1D493EA900DA6078 /* ToDoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoModel.m; sourceTree = "<group>"; };
 		6571FC7F1D49425C00DA6078 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6571FC811D4A94B600DA6078 /* EditToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditToDoViewController.h; sourceTree = "<group>"; };
+		6571FC821D4A94B600DA6078 /* EditToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditToDoViewController.m; sourceTree = "<group>"; };
+		6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToDoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,9 @@
 				6571FC7C1D493EA900DA6078 /* ToDoModel.h */,
 				6571FC7D1D493EA900DA6078 /* ToDoModel.m */,
 				6571FC7F1D49425C00DA6078 /* .gitignore */,
+				6571FC811D4A94B600DA6078 /* EditToDoViewController.h */,
+				6571FC821D4A94B600DA6078 /* EditToDoViewController.m */,
+				6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -145,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6571FC801D49425C00DA6078 /* .gitignore in Resources */,
+				6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */,
 				6571FC721D49347F00DA6078 /* LaunchScreen.storyboard in Resources */,
 				6571FC6F1D49347F00DA6078 /* Assets.xcassets in Resources */,
 				6571FC6D1D49347F00DA6078 /* Main.storyboard in Resources */,
@@ -161,6 +170,7 @@
 				6571FC671D49347F00DA6078 /* AppDelegate.m in Sources */,
 				6571FC7E1D493EA900DA6078 /* ToDoModel.m in Sources */,
 				6571FC7B1D49359300DA6078 /* ToDoListTableViewController.m in Sources */,
+				6571FC831D4A94B600DA6078 /* EditToDoViewController.m in Sources */,
 				6571FC641D49347F00DA6078 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

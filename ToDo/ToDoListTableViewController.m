@@ -8,6 +8,7 @@
 
 #import "ToDoListTableViewController.h"
 #import "ToDoModel.h"
+#import "EditToDoViewController.h"
 
 @interface ToDoListTableViewController ()
 
@@ -45,7 +46,10 @@
 }
 
 - (void) addClicked:(id)sender; {
-    
+    EditToDoViewController * editor = [[EditToDoViewController alloc]
+                                       initWithNibName:@"EditToDoViewController"
+                                       bundle:[NSBundle mainBundle]];
+    [self presentViewController:editor animated:YES completion:nil];
     
 }
 
