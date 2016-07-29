@@ -18,6 +18,21 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"Edit";
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Save"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(saveClicked:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]
+                                     initWithTitle:@"Cancel"
+                                     style:UIBarButtonItemStylePlain
+                                     target:self
+                                     action:@selector(cancelClicked:)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    self.navigationItem.rightBarButtonItem = saveButton;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,6 +44,11 @@
 {
     //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)saveClicked:(id)sender;
+{
+    
 }
 
 /*
