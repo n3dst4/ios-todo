@@ -12,6 +12,7 @@
 @interface EditToDoViewController ()
 
 @property IBOutlet UITextField *textField;
+@property IBOutlet UISwitch *completeSwitch;
 
 @end
 
@@ -37,6 +38,7 @@
     self.navigationItem.rightBarButtonItem = saveButton;
     self.textField.delegate = self;
     self.textField.text = self.todo.title;
+    [self.completeSwitch setOn:self.todo.complete animated:NO];
 
 }
 
@@ -54,6 +56,7 @@
 - (IBAction)saveClicked:(id)sender;
 {
     self.todo.title = self.textField.text;
+    self.todo.complete = [self.completeSwitch isOn];
     [self.delegate saveToDo:self.todo];
 }
 

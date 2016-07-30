@@ -64,7 +64,6 @@
 
 - (void) saveToDo:(ToDoModel *)todo;
 {
-    NSLog(@"new todo with title: %@", todo.title);
     if (self.isEditMode) {
         NSMutableArray *mut = [NSMutableArray arrayWithArray:self.todos];
         [mut replaceObjectAtIndex:self.editingIndex withObject:todo];
@@ -81,7 +80,6 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selected index path %ld", (long)indexPath.row);
     EditToDoViewController * editor = [[EditToDoViewController alloc]
                                        initWithNibName:@"EditToDoViewController"
                                        bundle:[NSBundle mainBundle]];
@@ -116,7 +114,7 @@
     
     // Configure the cell...
     ToDoModel *todo = self.todos[indexPath.row];
-    cell.textLabel.text = [todo title];
+    cell.textLabel.text = todo.complete? [NSString stringWithFormat:@"COMPLETE: %@", todo.title] : todo.title;
     
     return cell;
 }
