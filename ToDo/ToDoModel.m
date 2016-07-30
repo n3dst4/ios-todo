@@ -10,18 +10,17 @@
 
 @implementation ToDoModel
 
-- (id) initWithTitle:(NSString*)theTitle;
+- (id) initWithTitle:(NSString*)theTitle complete:(BOOL)complete;
 {
     self = [super init];
     self.title = theTitle;
+    self.complete = complete;
     return self;
 }
 
 - (id) copyWithZone:(NSZone *)zone
 {
-    id copy = [[[self class] alloc] init];
-    [copy setTitle:self.title];
-    [copy setComplete:self.complete];
+    id copy = [[[self class] alloc] initWithTitle:self.title complete:self.complete];
     return copy;
 }
 

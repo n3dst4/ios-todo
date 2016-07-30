@@ -18,7 +18,7 @@
 
 @property BOOL isEditMode;
 
-@property NSNumber *editingIndex;
+@property NSUInteger editingIndex;
 
 @end
 
@@ -36,9 +36,9 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
     self.navigationItem.title = @"To Do";
     self.todos = @[
-                   [[ToDoModel alloc] initWithTitle:@"First things first"],
-                   [[ToDoModel alloc] initWithTitle:@"And another thing"],
-                   [[ToDoModel alloc] initWithTitle:@"And finally"],
+                   [[ToDoModel alloc] initWithTitle:@"First things first" complete:NO],
+                   [[ToDoModel alloc] initWithTitle:@"And another thing" complete:NO],
+                   [[ToDoModel alloc] initWithTitle:@"And finally" complete:NO],
                    ];
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
@@ -49,8 +49,6 @@
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     
     self.isEditMode = NO;
-    self.editingIndex = nil;
-    
 }
 
 - (void) addClicked:(id)sender; {
@@ -58,7 +56,7 @@
                                        initWithNibName:@"EditToDoViewController"
                                        bundle:[NSBundle mainBundle]];
     editor.delegate = self;
-    editor.todo = [[ToDoModel alloc] init];
+    editor.todo = [[ToDoModel alloc] initWithTitle:@"" complete:NO];
     //[self presentViewController:editor animated:YES completion:nil];
     [self.navigationController pushViewController:editor animated:YES];
     
@@ -69,17 +67,15 @@
     NSLog(@"new todo with title: %@", todo.title);
     if (self.isEditMode) {
         NSMutableArray *mut = [NSMutableArray arrayWithArray:self.todos];
-        [mut replaceObjectAtIndex:[self.editingIndex unsignedIntegerValue] withObject:todo];
+        [mut replaceObjectAtIndex:self.editingIndex withObject:todo];
         self.todos = [mut copy];
     }
     else {
         self.todos = [self.todos arrayByAddingObject:todo];
     }
     self.isEditMode = NO;
-    self.editingIndex = nil;
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
-    
 }
 
 
@@ -91,6 +87,8 @@
                                        bundle:[NSBundle mainBundle]];
     editor.delegate = self;
     editor.todo = [self.todos[indexPath.row] copy];
+    self.isEditMode = YES;
+    self.editingIndex = indexPath.row;
     //[self presentViewController:editor animated:YES completion:nil];
     [self.navigationController pushViewController:editor animated:YES];
     

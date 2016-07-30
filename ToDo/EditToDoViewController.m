@@ -36,6 +36,7 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = saveButton;
     self.textField.delegate = self;
+    self.textField.text = self.todo.title;
 
 }
 

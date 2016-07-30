@@ -13,6 +13,6 @@
 @property (strong, atomic) NSString *title;
 @property BOOL complete;
 
-- (id) initWithTitle:(NSString*)theTitle;
+- (id) initWithTitle:(NSString*)theTitle complete:(BOOL)complete;
 
 @end
