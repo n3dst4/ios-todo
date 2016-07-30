@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ToDoModel : NSObject
+@interface ToDoModel : NSObject <NSCopying>
 
 @property (strong, atomic) NSString *title;
 @property BOOL complete;

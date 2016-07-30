@@ -16,6 +16,10 @@
 
 @property (strong, atomic) NSArray *todos;
 
+@property BOOL isEditMode;
+
+@property NSNumber *editingIndex;
+
 @end
 
 @implementation ToDoListTableViewController
@@ -43,8 +47,9 @@
                                   action:@selector(addClicked:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
-    //NSLog(@"table view background is %@", self.view.backgroundColor);
-    //NSLog(@"nav controller background is %@", self.navigationController.view.backgroundColor);
+    
+    self.isEditMode = NO;
+    self.editingIndex = nil;
     
 }
 
@@ -61,13 +66,33 @@
 
 - (void) saveToDo:(ToDoModel *)todo;
 {
-    //NSMutableArray *mut = [[NSMutableArray alloc] initWithArray:self.todos];
-    //[mut addObject:todo];
-    //self.todos = [mut copy];
     NSLog(@"new todo with title: %@", todo.title);
-    self.todos = [self.todos arrayByAddingObject:todo];
+    if (self.isEditMode) {
+        NSMutableArray *mut = [NSMutableArray arrayWithArray:self.todos];
+        [mut replaceObjectAtIndex:[self.editingIndex unsignedIntegerValue] withObject:todo];
+        self.todos = [mut copy];
+    }
+    else {
+        self.todos = [self.todos arrayByAddingObject:todo];
+    }
+    self.isEditMode = NO;
+    self.editingIndex = nil;
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
+    
+}
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Selected index path %ld", (long)indexPath.row);
+    EditToDoViewController * editor = [[EditToDoViewController alloc]
+                                       initWithNibName:@"EditToDoViewController"
+                                       bundle:[NSBundle mainBundle]];
+    editor.delegate = self;
+    editor.todo = [self.todos[indexPath.row] copy];
+    //[self presentViewController:editor animated:YES completion:nil];
+    [self.navigationController pushViewController:editor animated:YES];
     
 }
 

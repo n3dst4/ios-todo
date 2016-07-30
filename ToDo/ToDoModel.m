@@ -17,4 +17,12 @@
     return self;
 }
 
+- (id) copyWithZone:(NSZone *)zone
+{
+    id copy = [[[self class] alloc] init];
+    [copy setTitle:self.title];
+    [copy setComplete:self.complete];
+    return copy;
+}
+
 @end
