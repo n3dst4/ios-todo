@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "ToDoModel.h"
+
+@class ToDoModel;
+
+@protocol EditToDoViewControllerDelegate <NSObject>
+
+- (void) saveToDo:(ToDoModel *)todo;
+
+@end
+
 
 @interface EditToDoViewController : UIViewController
+
+@property (weak, nonatomic) id<EditToDoViewControllerDelegate> delegate;
+@property (strong, nonatomic) ToDoModel * todo;
 
 - (IBAction)cancelClicked:(id)sender;
 - (IBAction)saveClicked:(id)sender;

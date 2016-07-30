@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditToDoViewController">
             <connections>
+                <outlet property="textField" destination="C98-cR-8XV" id="VfO-nY-zae"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PJS-td-QGL"/>
             </connections>
         </placeholder>

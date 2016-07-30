@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditToDoViewController.h"
 
-@interface ToDoListTableViewController : UITableViewController
+@interface ToDoListTableViewController : UITableViewController <EditToDoViewControllerDelegate>
 
 - (void) addClicked:(id)sender;
 

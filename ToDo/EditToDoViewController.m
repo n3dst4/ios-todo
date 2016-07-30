@@ -7,8 +7,11 @@
 //
 
 #import "EditToDoViewController.h"
+#import "ToDoModel.h"
 
 @interface EditToDoViewController ()
+
+@property IBOutlet UITextField *textField;
 
 @end
 
@@ -48,7 +51,8 @@
 
 - (IBAction)saveClicked:(id)sender;
 {
-    
+    self.todo.title = self.textField.text;
+    [self.delegate saveToDo:self.todo];
 }
 
 /*

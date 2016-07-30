@@ -52,8 +52,22 @@
     EditToDoViewController * editor = [[EditToDoViewController alloc]
                                        initWithNibName:@"EditToDoViewController"
                                        bundle:[NSBundle mainBundle]];
+    editor.delegate = self;
+    editor.todo = [[ToDoModel alloc] init];
     //[self presentViewController:editor animated:YES completion:nil];
     [self.navigationController pushViewController:editor animated:YES];
+    
+}
+
+- (void) saveToDo:(ToDoModel *)todo;
+{
+    //NSMutableArray *mut = [[NSMutableArray alloc] initWithArray:self.todos];
+    //[mut addObject:todo];
+    //self.todos = [mut copy];
+    NSLog(@"new todo with title: %@", todo.title);
+    self.todos = [self.todos arrayByAddingObject:todo];
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
     
 }
 
