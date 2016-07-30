@@ -18,7 +18,7 @@
 @end
 
 
-@interface EditToDoViewController : UIViewController
+@interface EditToDoViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) id<EditToDoViewControllerDelegate> delegate;
 @property (strong, nonatomic) ToDoModel * todo;

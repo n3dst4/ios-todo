@@ -35,6 +35,7 @@
                                      action:@selector(cancelClicked:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = saveButton;
+    self.textField.delegate = self;
 
 }
 
@@ -53,6 +54,12 @@
 {
     self.todo.title = self.textField.text;
     [self.delegate saveToDo:self.todo];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self saveClicked:textField];
+    return NO;
 }
 
 /*
