@@ -42,6 +42,9 @@
                                   target:self
                                   action:@selector(addClicked:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+    //NSLog(@"table view background is %@", self.view.backgroundColor);
+    //NSLog(@"nav controller background is %@", self.navigationController.view.backgroundColor);
     
 }
 

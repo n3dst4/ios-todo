@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditToDoViewController">
@@ -11,26 +12,35 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C98-cR-8XV">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C98-cR-8XV">
                     <rect key="frame" x="8" y="37" width="584" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCU-FE-HKr">
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCU-FE-HKr">
                     <rect key="frame" x="8" y="75" width="51" height="31"/>
                 </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Completed?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA2-qE-bEw">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA2-qE-bEw">
                     <rect key="frame" x="65" y="80" width="93" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PCU-FE-HKr" firstAttribute="centerY" secondItem="FA2-qE-bEw" secondAttribute="centerY" id="R6d-zE-z3N"/>
+                <constraint firstItem="FA2-qE-bEw" firstAttribute="leading" secondItem="PCU-FE-HKr" secondAttribute="trailing" constant="8" symbolic="YES" id="a1S-FI-9Z4"/>
+                <constraint firstItem="C98-cR-8XV" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="kkK-Gm-u61"/>
+                <constraint firstItem="C98-cR-8XV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="mgx-KE-pzF"/>
+                <constraint firstItem="C98-cR-8XV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="nmy-bx-LNB"/>
+                <constraint firstItem="PCU-FE-HKr" firstAttribute="top" secondItem="C98-cR-8XV" secondAttribute="bottom" constant="8" symbolic="YES" id="w2e-bQ-AYW"/>
+                <constraint firstItem="C98-cR-8XV" firstAttribute="leading" secondItem="PCU-FE-HKr" secondAttribute="leading" id="yBo-bu-XcX"/>
+            </constraints>
         </view>
     </objects>
 </document>
