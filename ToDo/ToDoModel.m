@@ -17,6 +17,10 @@ static NSUInteger count = 0;
 
 @property NSUInteger id;
 
++ (NSString *) pathToArchive;
++ (void) readArchive;
++ (void) saveArchive;
+
 @end
 
 
@@ -25,7 +29,12 @@ static NSUInteger count = 0;
 
 +(void) initialize
 {
-    todos = [[NSArray alloc] init];
+    [ToDoModel readArchive];
+    NSLog(@"%@", todos);
+    if (! todos) {
+        NSLog(@"Creating new blank array");
+        todos = [[NSArray alloc] init];
+    }
 }
 
 
@@ -38,12 +47,27 @@ static NSUInteger count = 0;
 }
 
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    self.title = [aDecoder decodeObjectForKey:@"title"];
+    self.complete = [aDecoder decodeBoolForKey:@"complete"];
+    return self;
+}
+
+
 - (id) initWithTitle:(NSString*)theTitle complete:(BOOL)complete;
 {
     self = [self init];
     self.title = theTitle;
     self.complete = complete;
     return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeBool:self.complete forKey:@"complete"];
 }
 
 - (id) copyWithZone:(NSZone *)zone
@@ -65,12 +89,37 @@ static NSUInteger count = 0;
 }
 
 
+# pragma mark - persistence
+
++ (NSString *) pathToArchive;
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths[0] stringByAppendingString:@"/todos.archive"];
+}
+
+
++ (void) readArchive;
+{
+    todos = [NSKeyedUnarchiver unarchiveObjectWithFile:[ToDoModel pathToArchive]];
+    NSLog(@"restored %@ items from %@", @(todos.count), [ToDoModel pathToArchive]);
+}
+
+
++ (void) saveArchive;
+{
+    NSLog(@"archiving %@ items to %@", @(todos.count), [ToDoModel pathToArchive]);
+    [NSKeyedArchiver archiveRootObject:todos toFile:[ToDoModel pathToArchive]];
+}
+
+
+
 # pragma mark - updating
 
 + (void) addToDo:(ToDoModel *)newToDo;
 {
     newToDo = [newToDo copy]; // make sure it has a fresh id
     todos = [todos arrayByAddingObject:newToDo];
+    [ToDoModel saveArchive];
 }
 
 
@@ -89,6 +138,7 @@ static NSUInteger count = 0;
         NSMutableArray *mut = [NSMutableArray arrayWithArray:todos];
         [mut replaceObjectAtIndex:i withObject:theToDo];
         todos = [mut copy];
+        [ToDoModel saveArchive];
     }
     else {
         // should probably do some sort of actual error handling :P
