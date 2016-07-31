@@ -10,17 +10,18 @@
 #import "ToDoModel.h"
 #import "EditToDoViewController.h"
 
+
 @interface ToDoListTableViewController ()
 
 @property (strong, nonatomic) NSString *cellIdentifier;
-
 @property (strong, atomic) NSArray *todos;
-
 @property BOOL isEditMode;
 
-@property NSUInteger editingIndex;
+- (void) reload;
 
 @end
+
+
 
 @implementation ToDoListTableViewController
 
@@ -28,28 +29,25 @@
     [super viewDidLoad];
     
     self.cellIdentifier = @"cellywelly";
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
     self.navigationItem.title = @"To Do";
-    self.todos = @[
-                   [[ToDoModel alloc] initWithTitle:@"First things first" complete:NO],
-                   [[ToDoModel alloc] initWithTitle:@"And another thing" complete:NO],
-                   [[ToDoModel alloc] initWithTitle:@"And finally" complete:NO],
-                   ];
-    
+    [self reload];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                   target:self
                                   action:@selector(addClicked:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
-    
     self.isEditMode = NO;
 }
+
+
+- (void) reload;
+{
+    self.todos = [ToDoModel getToDosWhichAreComplete:NO];
+    [self.tableView reloadData];
+}
+
 
 - (void) addClicked:(id)sender; {
     EditToDoViewController * editor = [[EditToDoViewController alloc]
@@ -62,31 +60,30 @@
     
 }
 
+
 - (void) saveToDo:(ToDoModel *)todo;
 {
     if (self.isEditMode) {
-        NSMutableArray *mut = [NSMutableArray arrayWithArray:self.todos];
-        [mut replaceObjectAtIndex:self.editingIndex withObject:todo];
-        self.todos = [mut copy];
+        [ToDoModel saveToDo:todo];
     }
     else {
-        self.todos = [self.todos arrayByAddingObject:todo];
+        [ToDoModel addToDo:todo];
     }
     self.isEditMode = NO;
     [self.navigationController popViewControllerAnimated:YES];
-    [self.tableView reloadData];
+    [self reload];
 }
 
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)      tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EditToDoViewController * editor = [[EditToDoViewController alloc]
                                        initWithNibName:@"EditToDoViewController"
                                        bundle:[NSBundle mainBundle]];
     editor.delegate = self;
-    editor.todo = [self.todos[indexPath.row] copy];
+    editor.todo = self.todos[indexPath.row];
     self.isEditMode = YES;
-    self.editingIndex = indexPath.row;
     //[self presentViewController:editor animated:YES completion:nil];
     [self.navigationController pushViewController:editor animated:YES];
     
@@ -97,6 +94,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark - Table view data source
 

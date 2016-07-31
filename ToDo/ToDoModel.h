@@ -15,4 +15,10 @@
 
 - (id) initWithTitle:(NSString*)theTitle complete:(BOOL)complete;
 
++ (NSArray *) getAllToDos;
++ (NSArray *) getToDosWhichAreComplete:(BOOL)complete;
++ (void) addToDo:(ToDoModel *)newToDo;
++ (void) saveToDo:(ToDoModel *)theToDo;
+
+
 @end
