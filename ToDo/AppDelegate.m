@@ -24,16 +24,21 @@
     ToDoListTableViewController *toDoListTableViewController =
         [[ToDoListTableViewController alloc] initWithComplete:NO];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:toDoListTableViewController];
+    //navController.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured
+    //                                                                       tag:0];
+    navController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"To do" image:[UIImage imageNamed:@"mailbox"] tag:0];
     navController.tabBarItem.title = @"To do";
+    
     
     ToDoListTableViewController *completeListTableViewController =
         [[ToDoListTableViewController alloc] initWithComplete:YES];
     UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:completeListTableViewController];
-    navController2.tabBarItem.title = @"Complete";
+    navController2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Complete" image:[UIImage imageNamed:@"check"] tag:0];
     
     UITabBarController *tabController = [[UITabBarController alloc] init];
     [tabController addChildViewController:navController];
     [tabController addChildViewController:navController2];
+    //[tabController ]
     
     self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
