@@ -13,4 +13,6 @@
 
 - (void) addClicked:(id)sender;
 
+- (id) initWithComplete:(BOOL)complete;
+
 @end

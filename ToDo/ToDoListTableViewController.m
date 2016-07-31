@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *cellIdentifier;
 @property (strong, atomic) NSArray *todos;
 @property BOOL isEditMode;
+@property BOOL showComplete;
 
 - (void) reload;
 
@@ -25,13 +26,19 @@
 
 @implementation ToDoListTableViewController
 
+- (id) initWithComplete:(BOOL)complete;
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    self.showComplete = complete;
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.cellIdentifier = @"cellywelly";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
     self.navigationItem.title = @"To Do";
-    [self reload];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                   target:self
@@ -41,10 +48,14 @@
     self.isEditMode = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self reload];
+}
 
 - (void) reload;
 {
-    self.todos = [ToDoModel getToDosWhichAreComplete:NO];
+    self.todos = [ToDoModel getToDosWhichAreComplete:self.showComplete];
     [self.tableView reloadData];
 }
 

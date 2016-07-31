@@ -20,10 +20,22 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     ToDoListTableViewController *toDoListTableViewController =
-        [[ToDoListTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        [[ToDoListTableViewController alloc] initWithComplete:NO];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:toDoListTableViewController];
-    self.window.rootViewController = navController;
+    navController.tabBarItem.title = @"To do";
+    
+    ToDoListTableViewController *completeListTableViewController =
+        [[ToDoListTableViewController alloc] initWithComplete:YES];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:completeListTableViewController];
+    navController2.tabBarItem.title = @"Complete";
+    
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    [tabController addChildViewController:navController];
+    [tabController addChildViewController:navController2];
+    
+    self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
     
     return YES;
