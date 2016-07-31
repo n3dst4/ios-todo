@@ -147,6 +147,18 @@ static NSUInteger count = 0;
     
 }
 
++ (void) clearCompleted;
+{
+    NSMutableArray *mut = [NSMutableArray array];
+    for (ToDoModel * todo in todos) {
+        if (! todo.complete) {
+            [mut addObject:todo];
+        }
+    }
+    todos = [mut copy];
+    [ToDoModel saveArchive];
+}
+
 
 @end
 

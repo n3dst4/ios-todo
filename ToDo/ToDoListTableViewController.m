@@ -39,11 +39,21 @@
     self.cellIdentifier = @"cellywelly";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
     self.navigationItem.title = @"To Do";
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                  target:self
-                                  action:@selector(addClicked:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    if (self.showComplete) {
+        UIBarButtonItem *clearButton = [[UIBarButtonItem alloc]
+                                        initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                        target:self
+                                        action:@selector(clearClicked:)];
+        self.navigationItem.leftBarButtonItem = clearButton;
+        
+    }
+    else {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                      target:self
+                                      action:@selector(addClicked:)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     self.isEditMode = NO;
 }
@@ -69,6 +79,30 @@
     //[self presentViewController:editor animated:YES completion:nil];
     [self.navigationController pushViewController:editor animated:YES];
     
+}
+
+- (void) clearClicked:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Clear completed items?"
+                                                                   message:@"This will permanently remove all the items that have been marked \"complete\""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Clear"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              [ToDoModel clearCompleted];
+                                                              [self reload];
+                                                          }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action) {
+                                                             
+                                                         }];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 

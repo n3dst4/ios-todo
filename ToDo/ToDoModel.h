@@ -19,6 +19,7 @@
 + (NSArray *) getToDosWhichAreComplete:(BOOL)complete;
 + (void) addToDo:(ToDoModel *)newToDo;
 + (void) saveToDo:(ToDoModel *)theToDo;
++ (void) clearCompleted;
 
 
 @end
