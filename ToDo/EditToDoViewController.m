@@ -38,6 +38,7 @@
     self.navigationItem.rightBarButtonItem = saveButton;
     self.textField.delegate = self;
     self.textField.text = self.todo.title;
+    [self.textField becomeFirstResponder];
     [self.completeSwitch setOn:self.todo.complete animated:NO];
 
 }
