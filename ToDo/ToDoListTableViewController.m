@@ -38,7 +38,7 @@
     
     self.cellIdentifier = @"cellywelly";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
-    self.navigationItem.title = @"To Do";
+    self.navigationItem.title = self.showComplete? @"Complete" : @"To do";
     if (self.showComplete) {
         UIBarButtonItem *clearButton = [[UIBarButtonItem alloc]
                                         initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
