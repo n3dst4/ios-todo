@@ -35,6 +35,11 @@ static NSUInteger count = 0;
         NSLog(@"Creating new blank array");
         todos = [[NSArray alloc] init];
     }
+    for (ToDoModel *todo in todos) {
+        if (todo.id >= count) {
+            count = todo.id + 1;
+        }
+    }
 }
 
 
