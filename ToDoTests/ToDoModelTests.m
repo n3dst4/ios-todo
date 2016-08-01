@@ -24,8 +24,16 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testListIsEmptyAtStart {
     XCTAssertEqual([[ToDoModel getAllToDos] count], 0);
+}
+
+- (void)testAddingOneToDo {
+    [ToDoModel addToDo:[[ToDoModel alloc] initWithTitle:@"test" complete:NO]];
+    NSArray *todos = [ToDoModel getAllToDos];
+    XCTAssertEqual([todos count], 1);
+    XCTAssertEqual([[todos objectAtIndex:0] title], @"test");
+    XCTAssertEqual([[todos objectAtIndex:0] complete], NO);
 }
 
 //- (void)testPerformanceExample {
