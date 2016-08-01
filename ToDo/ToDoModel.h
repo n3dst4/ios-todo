@@ -20,6 +20,6 @@
 + (void) addToDo:(ToDoModel *)newToDo;
 + (void) saveToDo:(ToDoModel *)theToDo;
 + (void) clearCompleted;
-
++ (void) wipeEverything;
 
 @end

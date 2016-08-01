@@ -159,6 +159,13 @@ static NSUInteger count = 0;
     [ToDoModel saveArchive];
 }
 
+# pragma mark - the nuclear option - for testing only - not great MVC tbh
++ (void) wipeEverything;
+{
+    todos = @[];
+    [ToDoModel saveArchive];
+}
+
 
 @end
 
