@@ -17,7 +17,7 @@
 		6571FC801D49425C00DA6078 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC7F1D49425C00DA6078 /* .gitignore */; };
 		6571FC831D4A94B600DA6078 /* EditToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571FC821D4A94B600DA6078 /* EditToDoViewController.m */; };
 		6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */; };
-		657256251D4FD42D00B8F276 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657256241D4FD42C00B8F276 /* ToDoTests.m */; };
+		657256251D4FD42D00B8F276 /* ToDoModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657256241D4FD42C00B8F276 /* ToDoModelTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		6571FC821D4A94B600DA6078 /* EditToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditToDoViewController.m; sourceTree = "<group>"; };
 		6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToDoViewController.xib; sourceTree = "<group>"; };
 		657256221D4FD42C00B8F276 /* ToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		657256241D4FD42C00B8F276 /* ToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTests.m; sourceTree = "<group>"; };
+		657256241D4FD42C00B8F276 /* ToDoModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoModelTests.m; sourceTree = "<group>"; };
 		657256261D4FD42D00B8F276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +121,7 @@
 		657256231D4FD42C00B8F276 /* ToDoTests */ = {
 			isa = PBXGroup;
 			children = (
-				657256241D4FD42C00B8F276 /* ToDoTests.m */,
+				657256241D4FD42C00B8F276 /* ToDoModelTests.m */,
 				657256261D4FD42D00B8F276 /* Info.plist */,
 			);
 			path = ToDoTests;
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				657256251D4FD42D00B8F276 /* ToDoTests.m in Sources */,
+				657256251D4FD42D00B8F276 /* ToDoModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

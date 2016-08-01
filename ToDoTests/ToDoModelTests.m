@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "ToDoModel.h"
 
-@interface ToDoTests : XCTestCase
+@interface ToDoModelTests : XCTestCase
 
 @end
 
-@implementation ToDoTests
+@implementation ToDoModelTests
 
 - (void)setUp {
     [super setUp];
