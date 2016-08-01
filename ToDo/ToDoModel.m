@@ -35,11 +35,6 @@ static NSUInteger count = 0;
         NSLog(@"Creating new blank array");
         todos = [[NSArray alloc] init];
     }
-    for (ToDoModel *todo in todos) {
-        if (todo.id >= count) {
-            count = todo.id + 1;
-        }
-    }
 }
 
 
@@ -54,7 +49,7 @@ static NSUInteger count = 0;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [self init];
     self.title = [aDecoder decodeObjectForKey:@"title"];
     self.complete = [aDecoder decodeBoolForKey:@"complete"];
     return self;
