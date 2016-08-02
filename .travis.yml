@@ -1,3 +1,3 @@
 language: objective-c
-xcode_project: ToDo.xcodeproj # path to your xcodeproj folder
+xcode_project: ToDo.xcodeproj # path to your xcodeproj folderx
 xcode_scheme: ToDoTests
