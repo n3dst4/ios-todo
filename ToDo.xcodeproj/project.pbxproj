@@ -18,6 +18,7 @@
 		6571FC831D4A94B600DA6078 /* EditToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571FC821D4A94B600DA6078 /* EditToDoViewController.m */; };
 		6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */; };
 		657256251D4FD42D00B8F276 /* ToDoModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657256241D4FD42C00B8F276 /* ToDoModelTests.m */; };
+		6572562D1D5072A800B8F276 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6572562C1D5072A800B8F276 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		657256221D4FD42C00B8F276 /* ToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		657256241D4FD42C00B8F276 /* ToDoModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoModelTests.m; sourceTree = "<group>"; };
 		657256261D4FD42D00B8F276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6572562C1D5072A800B8F276 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		6571FC561D49347F00DA6078 = {
 			isa = PBXGroup;
 			children = (
+				6572562C1D5072A800B8F276 /* .travis.yml */,
 				6571FC611D49347F00DA6078 /* ToDo */,
 				657256231D4FD42C00B8F276 /* ToDoTests */,
 				6571FC601D49347F00DA6078 /* Products */,
@@ -208,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6572562D1D5072A800B8F276 /* .travis.yml in Resources */,
 				6571FC801D49425C00DA6078 /* .gitignore in Resources */,
 				6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */,
 				6571FC721D49347F00DA6078 /* LaunchScreen.storyboard in Resources */,
