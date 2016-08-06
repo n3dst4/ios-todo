@@ -27,6 +27,8 @@ static NSUInteger count = 0;
 
 @implementation ToDoModel
 
+@synthesize title = _title;
+
 +(void) initialize
 {
     [ToDoModel readArchive];
@@ -44,6 +46,16 @@ static NSUInteger count = 0;
     self.id = count;
     count += 1;
     return self;
+}
+
+- (NSString *) title
+{
+    return _title;
+}
+
+- (void) setTitle:(NSString *)newTitle
+{
+    _title = [newTitle stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
 }
 
 
