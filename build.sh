@@ -28,4 +28,9 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 #xcodebuild -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 # this version uses xcodebuild, apple's own build tool
-xcodebuild -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+xcodebuild\
+    -project ToDo.xcodeproj \
+    -scheme ToDo \
+    test build \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO
