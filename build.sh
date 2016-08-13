@@ -7,7 +7,7 @@
 #  Created by Neil de Carteret on 13/08/2016.
 #  Copyright © 2016 Neil de Carteret. All rights reserved.
 
-echo "I AM RUNNING" && exit 0
+#echo "I AM RUNNING" && exit 0
 
 
 # from https://docs.travis-ci.com/user/common-build-problems/#Mac%3A-Code-Signing-Errors
@@ -21,4 +21,4 @@ security unlock-keychain -p travis $KEY_CHAIN
 security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 # from https://github.com/travis-ci/travis-ci/issues/3047#issuecomment-69844401
-xctool -workspace cam-pro.xcworkspace -scheme cam-beta clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+xctool -project ToDo.xcodeproj -scheme ToDo clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
