@@ -36,6 +36,52 @@
     XCTAssertEqual([[todos objectAtIndex:0] complete], NO);
 }
 
+- (void)testModifyingAToDo {
+    ToDoModel *myTodo = [[ToDoModel alloc] initWithTitle:@"test" complete:NO];
+    [ToDoModel addToDo:myTodo];
+    myTodo = [[ToDoModel getAllToDos] objectAtIndex:0];
+    myTodo.title = @"modified";
+    [ToDoModel saveToDo:myTodo];
+    NSArray *todos = [ToDoModel getAllToDos];
+    XCTAssertEqual([todos count], 1);
+    XCTAssertTrue([[[todos objectAtIndex:0] title] isEqualToString:@"modified"]);
+}
+
+- (void)testCompletingAToDo {
+    ToDoModel *myTodo = [[ToDoModel alloc] initWithTitle:@"test" complete:NO];
+    [ToDoModel addToDo:myTodo];
+    myTodo = [[ToDoModel getAllToDos] objectAtIndex:0];
+    myTodo.complete = YES;
+    [ToDoModel saveToDo:myTodo];
+    NSArray *todos = [ToDoModel getAllToDos];
+    XCTAssertEqual([todos count], 1);
+    XCTAssertTrue([[todos objectAtIndex:0] complete]);
+}
+
+- (void)testStrippingWhitespaceAtStart {
+    ToDoModel *myTodo = [[ToDoModel alloc] initWithTitle:@"  test" complete:NO];
+    [ToDoModel addToDo:myTodo];
+    myTodo = [[ToDoModel getAllToDos] objectAtIndex:0];
+    //myTodo.title = @"test";
+    XCTAssertEqualObjects([myTodo title], @"test");
+}
+
+- (void)testStrippingWhitespaceAtEnd {
+    ToDoModel *myTodo = [[ToDoModel alloc] initWithTitle:@"test   " complete:NO];
+    [ToDoModel addToDo:myTodo];
+    myTodo = [[ToDoModel getAllToDos] objectAtIndex:0];
+    //myTodo.title = @"test";
+    XCTAssertEqualObjects([myTodo title], @"test");
+}
+
+- (void)testStrippingWhitespaceAtBothEnds {
+    ToDoModel *myTodo = [[ToDoModel alloc] initWithTitle:@"   test   " complete:NO];
+    [ToDoModel addToDo:myTodo];
+    myTodo = [[ToDoModel getAllToDos] objectAtIndex:0];
+    //myTodo.title = @"test";
+    XCTAssertEqualObjects([myTodo title], @"test");
+}
+
 //- (void)testPerformanceExample {
 //    // This is an example of a performance test case.
 //    [self measureBlock:^{
