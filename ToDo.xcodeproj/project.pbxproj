@@ -52,6 +52,7 @@
 		657256241D4FD42C00B8F276 /* ToDoModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoModelTests.m; sourceTree = "<group>"; };
 		657256261D4FD42D00B8F276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6572562C1D5072A800B8F276 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		659051D21D5F9532001E8F76 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		6571FC561D49347F00DA6078 = {
 			isa = PBXGroup;
 			children = (
+				659051D21D5F9532001E8F76 /* build.sh */,
 				6572562C1D5072A800B8F276 /* .travis.yml */,
 				6571FC611D49347F00DA6078 /* ToDo */,
 				657256231D4FD42C00B8F276 /* ToDoTests */,
