@@ -31,6 +31,6 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 xcodebuild\
     -project ToDo.xcodeproj \
     -scheme ToDo \
-    test build \
+    build test \
     CODE_SIGN_IDENTITY="" \
     CODE_SIGNING_REQUIRED=NO
