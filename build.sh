@@ -25,4 +25,7 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 # from https://github.com/travis-ci/travis-ci/issues/3047#issuecomment-69844401
 # this uses xctool which seems to be really popular but is actually a 3rd party
 # (facebook) tool
-xctool -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+#xcodebuild -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
+# this version uses xcodebuild, apple's own build tool
+xcodebuild -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
