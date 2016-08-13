@@ -21,4 +21,4 @@ security unlock-keychain -p travis $KEY_CHAIN
 security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 # from https://github.com/travis-ci/travis-ci/issues/3047#issuecomment-69844401
-xctool -project ToDo.xcodeproj -scheme ToDo clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+xctool -project ToDo.xcodeproj -scheme ToDo clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
