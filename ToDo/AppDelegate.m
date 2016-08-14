@@ -19,6 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    BOOL killThemAll = [[[NSProcessInfo processInfo] arguments] containsObject:@"--kill-them-all"];
+    if (killThemAll) {
+        exit(1);
+    }
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ToDoListTableViewController *toDoListTableViewController =
