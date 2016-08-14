@@ -19,10 +19,18 @@
 		6571FC871D4A98F700DA6078 /* EditToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6571FC861D4A98F700DA6078 /* EditToDoViewController.xib */; };
 		657256251D4FD42D00B8F276 /* ToDoModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657256241D4FD42C00B8F276 /* ToDoModelTests.m */; };
 		6572562D1D5072A800B8F276 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6572562C1D5072A800B8F276 /* .travis.yml */; };
+		659051DA1D60D6CD001E8F76 /* ToDoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 659051D91D60D6CD001E8F76 /* ToDoUITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		657256271D4FD42D00B8F276 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6571FC571D49347F00DA6078 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6571FC5E1D49347F00DA6078;
+			remoteInfo = ToDo;
+		};
+		659051DC1D60D6CD001E8F76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6571FC571D49347F00DA6078 /* Project object */;
 			proxyType = 1;
@@ -53,6 +61,9 @@
 		657256261D4FD42D00B8F276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6572562C1D5072A800B8F276 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		659051D21D5F9532001E8F76 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		659051D71D60D6CD001E8F76 /* ToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		659051D91D60D6CD001E8F76 /* ToDoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoUITests.m; sourceTree = "<group>"; };
+		659051DB1D60D6CD001E8F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		659051D41D60D6CD001E8F76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +98,7 @@
 				6572562C1D5072A800B8F276 /* .travis.yml */,
 				6571FC611D49347F00DA6078 /* ToDo */,
 				657256231D4FD42C00B8F276 /* ToDoTests */,
+				659051D81D60D6CD001E8F76 /* ToDoUITests */,
 				6571FC601D49347F00DA6078 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +108,7 @@
 			children = (
 				6571FC5F1D49347F00DA6078 /* ToDo.app */,
 				657256221D4FD42C00B8F276 /* ToDoTests.xctest */,
+				659051D71D60D6CD001E8F76 /* ToDoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +152,15 @@
 			path = ToDoTests;
 			sourceTree = "<group>";
 		};
+		659051D81D60D6CD001E8F76 /* ToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				659051D91D60D6CD001E8F76 /* ToDoUITests.m */,
+				659051DB1D60D6CD001E8F76 /* Info.plist */,
+			);
+			path = ToDoUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,6 +199,24 @@
 			productReference = 657256221D4FD42C00B8F276 /* ToDoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		659051D61D60D6CD001E8F76 /* ToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 659051DE1D60D6CD001E8F76 /* Build configuration list for PBXNativeTarget "ToDoUITests" */;
+			buildPhases = (
+				659051D31D60D6CD001E8F76 /* Sources */,
+				659051D41D60D6CD001E8F76 /* Frameworks */,
+				659051D51D60D6CD001E8F76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				659051DD1D60D6CD001E8F76 /* PBXTargetDependency */,
+			);
+			name = ToDoUITests;
+			productName = ToDoUITests;
+			productReference = 659051D71D60D6CD001E8F76 /* ToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +231,10 @@
 						DevelopmentTeam = HC5LSEPZM9;
 					};
 					657256211D4FD42C00B8F276 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 6571FC5E1D49347F00DA6078;
+					};
+					659051D61D60D6CD001E8F76 = {
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 6571FC5E1D49347F00DA6078;
 					};
@@ -204,6 +255,7 @@
 			targets = (
 				6571FC5E1D49347F00DA6078 /* ToDo */,
 				657256211D4FD42C00B8F276 /* ToDoTests */,
+				659051D61D60D6CD001E8F76 /* ToDoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +275,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		657256201D4FD42C00B8F276 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		659051D51D60D6CD001E8F76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,6 +311,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		659051D31D60D6CD001E8F76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659051DA1D60D6CD001E8F76 /* ToDoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -259,6 +326,11 @@
 			isa = PBXTargetDependency;
 			target = 6571FC5E1D49347F00DA6078 /* ToDo */;
 			targetProxy = 657256271D4FD42D00B8F276 /* PBXContainerItemProxy */;
+		};
+		659051DD1D60D6CD001E8F76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6571FC5E1D49347F00DA6078 /* ToDo */;
+			targetProxy = 659051DC1D60D6CD001E8F76 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -418,6 +490,28 @@
 			};
 			name = Release;
 		};
+		659051DF1D60D6CD001E8F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ToDoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumphammer.ToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ToDo;
+			};
+			name = Debug;
+		};
+		659051E01D60D6CD001E8F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ToDoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumphammer.ToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ToDo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -447,6 +541,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		659051DE1D60D6CD001E8F76 /* Build configuration list for PBXNativeTarget "ToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				659051DF1D60D6CD001E8F76 /* Debug */,
+				659051E01D60D6CD001E8F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

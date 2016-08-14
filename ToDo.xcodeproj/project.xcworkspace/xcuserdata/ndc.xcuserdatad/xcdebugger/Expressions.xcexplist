@@ -10,5 +10,8 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[ToDoUITests testExample]:ToDoUITests.m">
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
