@@ -35,16 +35,15 @@
 - (void)testExample {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-    
     XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElementQuery *rowQuery = [app descendantsMatchingType:XCUIElementTypeCell];
+    NSUInteger firstCount = rowQuery.count;
     [app.buttons[@"Add"] tap];
     XCUIElement *textField = app.textFields[@"Title"];
     [textField typeText:@"hello"];
-    
-    
-//    [[[[[[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeTextField].element
     [app.buttons[@"Save"] tap];
-    
+    NSUInteger secondCount = rowQuery.count;
+    XCTAssert(secondCount > firstCount, @"Row was not added");
 }
 
 @end
